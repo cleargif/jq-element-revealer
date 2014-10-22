@@ -1,3 +1,5 @@
+# W I P !!
+
 # jQuery Element Revealer
 
 Show / Hide elements with Pub/Sub
