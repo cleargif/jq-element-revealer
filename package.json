@@ -1,0 +1,37 @@
+{
+  "name": "jq-element-revealer",
+  "version": "0.1.0",
+  "description": "jQuery Element Revealer",
+  "keywords": [
+    "jquery-plugin"
+  ],
+  "homepage": "https://github.com/cleargif/jq-element-revealer",
+  "bugs": "https://github.com/cleargif/jq-element-revealer/issues",
+  "author": {
+    "name": "@ClearGif",
+    "email": "jquery@cleargif.co.uk",
+    "url": "https://github.com/cleargif"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cleargif/jq-element-revealer.git"
+  },
+  "licenses": [
+    {
+      "type": "http://cleargifltd.mit-license.org/"
+    }
+  ],
+  "devDependencies": {
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-qunit": "~0.5.1",
+    "grunt-contrib-concat": "~0.4.0",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-watch": "~0.6.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-connect": "~0.8.0",
+    "time-grunt": "~0.3.2",
+    "load-grunt-tasks": "~0.6.0",
+    "jshint-stylish": "~0.2.0",
+    "grunt": "~0.4.5"
+  }
+}

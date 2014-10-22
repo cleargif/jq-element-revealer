@@ -1,0 +1,34 @@
+{
+  "name": "jq-element-revealer",
+  "version": "0.1.0",
+  "homepage": "http://jquery.cleargif.co.uk",
+  "authors": [
+    "@CleargGif <jquery@cleargif.co.uk>"
+  ],
+  "description": "jQuery plugin to handle progressive disclosure. Useful on forms.",
+  "main": "src/jq-element-revealer.js",
+  "keywords": [
+    "jquery",
+    "plugin",
+    "forms",
+    "jquery-plugin",
+    "tinyPubSub",
+    "progressive disclosure"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-tiny-pubsub": "https://github.com/cowboy/jquery-tiny-pubsub.git#~0.7.0"
+  },
+  "devDependencies": {
+    "qunit": "~1.12.0",
+    "jquery": "~1.7.2"
+  }
+}
