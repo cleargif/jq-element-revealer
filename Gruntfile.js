@@ -59,7 +59,7 @@ module.exports = function (grunt) {
         options: {
           jshintrc: 'src/.jshintrc'
         },
-        src: ['src/**/*.js']
+        src: ['src/*.js']
       },
       test: {
         options: {
@@ -75,29 +75,60 @@ module.exports = function (grunt) {
       },
       src: {
         files: '<%= jshint.src.src %>',
-        tasks: ['jshint:src', 'qunit']
+        tasks: ['jshint:src', 'qunit', 'concat', 'uglify']
+      },
+      demo: {
+        files: 'src/demo/**/*.html',
+        tasks: ['bake:build']
       },
       test: {
         files: '<%= jshint.test.src %>',
         tasks: ['jshint:test', 'qunit']
       }
     },
+    bake: {
+      build: {
+        files: {
+          'dist/demo/index.html': 'src/demo/index.html',
+          'dist/demo/buttons.html': 'src/demo/buttons.html',
+          'dist/demo/radios.html': 'src/demo/radios.html'
+        }
+      }
+    },
+    copy: {
+      main: {
+        files: [
+          // includes files within path
+          {
+            expand: true,
+            src: ['demo/css/*', 'demo/fonts/*', 'demo/js/*'],
+            cwd: 'src',
+            dest: 'dist/',
+            filter: 'isFile'
+          }
+        ],
+      },
+    },
     connect: {
       server: {
         options: {
           hostname: '*',
-          port: 9000
+          port: 9000,
+          open: 'http://localhost:9000/dist/demo/'
         }
       }
     }
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'connect', 'qunit', 'clean', 'concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'connect', 'qunit', 'clean', 'concat', 'uglify', 'copy:main', 'bake:build']);
+
   grunt.registerTask('server', function () {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve']);
   });
-  grunt.registerTask('serve', ['connect', 'watch']);
+
+  grunt.registerTask('serve', ['default', 'watch']);
+
   grunt.registerTask('test', ['jshint', 'connect', 'qunit']);
 };

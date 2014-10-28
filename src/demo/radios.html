@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!--(bake includes/header.html)-->
+  </head>
+
+  <body role="document">
+  <!--(bake includes/main-nav.html radios="true")-->
+
+    <div class="container theme-showcase" role="main">
+
+      <section class="dp-se">
+        <div class="page-header">
+          <h1>Examples :: Radios</h1>
+        </div>
+        <div class="bs-callout bs-callout-info">
+          <div class="pd-delegate-hook">
+            <small class="pull-right">
+              <a href="#nogo" class="pd-publisher" data-pd-publish-events="/example/showcode/">Code Samples</a>
+            </small>
+            <h4>The Publishers</h4>
+            <p>These buttons control the paragraphs below. Click them and see the subscribers react.<br/>
+            <small>The buttons will publish a single event with a single value. It is the subsribers who listen for the event and the values that will make them show / hide.</small></p>
+
+            <div class="pd-subscriber" data-pd-subscribe-events="/example/showcode/">
+            <!-- SAMPLE PUBLISERS HERE -->
+              <button type="button" class="btn btn-sm btn-default pd-publisher"
+                    data-pd-publish-events="/buttons/event/" data-pd-publish-value="button.attr.val1">button.attr.val1</button>
+
+              <div class="form-group pd-subscriber" data-pd-subscribe-events="/example/showcode/">
+                <label>Sex</label>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" class="pd-publisher">
+                    Male
+                  </label>
+                </div>
+                <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                    Female
+                  </label>
+                </div>
+                <p class="help-block">Lorem ipsum dolor sit amet</p>
+              </div>
+
+            </div>
+            <pre style="display:none;" class="pd-subscriber language-markup" data-pd-subscribe-events="/example/showcode/"><code>
+&lt;!-- Publishers --&gt;
+<!-- EXMAPLE PUBLISHER CODE -->
+          </code></pre>
+
+          </div>
+        </div>
+
+
+        <div class="bs-callout bs-callout-info">
+          <h4>The Subscibers</h4>
+          <p>These sections are shown by default. Simply becuase there is no hidden style applied.</p>
+          <div class="pd-subscriber demo-divs" data-pd-subscribe-events="/example/showcode/">
+
+            <!-- EXAMPLE SUBSCRIBERS -->
+            <div class="pd-subscriber" data-pd-subscribe-events="/buttons/event/" data-pd-subscribe-values="button.attr.val1">
+              <h5>Section 1</h5>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero nobis accusamus corporis, repellendus esse possimus numquam est deleniti vero laudantium in, facilis nisi ratione beatae, nostrum reprehenderit labore tempore? Quam!
+            </div>
+
+
+          </div>
+          <pre style="display:none;" class="pd-subscriber language-markup" data-pd-subscribe-events="/example/showcode/"><code>
+&lt;!-- Subscribers --&gt;
+<!-- EXAMPLE SUBSCRIBERS -->
+
+</code></pre>
+        </div>
+      </section>
+
+    </div> <!-- /container -->
+
+    <!--(bake includes/scripts.html)-->
+  </body>
+</html>

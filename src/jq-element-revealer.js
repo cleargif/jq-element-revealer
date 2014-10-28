@@ -29,7 +29,6 @@
   }
 
 
-
   // Avoid Plugin.prototype conflicts
   $.extend(Plugin.prototype, {
     init: function () {
@@ -119,8 +118,16 @@
      * @return {[type]}       [description]
      */
     subscriberStateManager: function (el, event, obj) {
-      var isInArray = !!~$.inArray(obj.eventValue, el.getAttribute(this.settings.dpSubscriberEventValues).split(this.settings.arraySeperator));
+      var eventValues = el.getAttribute(this.settings.dpSubscriberEventValues);
+      var isInArray;
       var $el = $(el);
+
+      if(!eventValues){
+        $el.toggle();
+        return;
+      }
+
+      isInArray = !!~$.inArray(obj.eventValue, eventValues.split(this.settings.arraySeperator));
       if (isInArray) {
         $el.show();
         return;
