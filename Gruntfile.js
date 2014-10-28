@@ -116,19 +116,22 @@ module.exports = function (grunt) {
           port: 9000,
           open: 'http://localhost:9000/dist/demo/'
         }
+      },
+      build: {
+        options: {
+          hostname: '*',
+          port: 9000
+        }
       }
     }
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'connect', 'qunit', 'clean', 'concat', 'uglify', 'copy:main', 'bake:build']);
+  grunt.registerTask('default', ['jshint', 'connect:server', 'qunit', 'clean', 'concat', 'uglify', 'copy:main', 'bake:build', 'watch']);
 
-  grunt.registerTask('server', function () {
-    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-    grunt.task.run(['serve']);
-  });
+  grunt.registerTask('build', ['jshint', 'connect:build', 'qunit', 'clean', 'concat', 'uglify', 'copy:main', 'bake:build']);
 
-  grunt.registerTask('serve', ['default', 'watch']);
+  grunt.registerTask('serve', ['default']);
 
-  grunt.registerTask('test', ['jshint', 'connect', 'qunit']);
+  grunt.registerTask('test', ['jshint', 'connect:build', 'qunit']);
 };
