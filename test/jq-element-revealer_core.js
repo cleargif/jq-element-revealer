@@ -21,17 +21,11 @@
       throws(block, [expected], [message])
   */
 
-  module('jQuery#jqReveal', {
-    // This will run before each test in this module.
-    setup: function () {
-      this.elems = $('#qunit-fixture').jqReveal();
-    }
-  });
+  module('jQuery#jqReveal');
 
-  test('chainable', function () {
+  test('avaliable', function () {
     console.log(this.elems);
-    ok($('p b').jqReveal().addClass('testing'), 'can be chained');
-    equal($('p b').hasClass('testing'), true, 'class was added correctly from chaining');
+    ok($.jqReveal('exists'));
   });
 
 }(jQuery));

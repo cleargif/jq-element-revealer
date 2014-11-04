@@ -3,7 +3,7 @@
 
   var pluginName = 'jqReveal',
     defaults = {
-      debug: true,
+      debug: false,
       arraySeparator: '|',
 
       // Publisher default selectors and attributes
@@ -16,12 +16,11 @@
       subscriberSelector: '.pd-subscriber',
       subscriberEvents: 'data-pd-subscribe-events',
       subscriberEventValues: 'data-pd-subscribe-values'
-    };
+    },
+    activated = false;
 
   // Plugin constructor
-  function Plugin(element, options) {
-    this.element = element;
-    this.$element = $(element);
+  function Plugin(options) {
     this.settings = $.extend({}, defaults, options);
     this.init();
   }
@@ -36,6 +35,7 @@
         this.debug();
       }
     },
+
     debug: function () {
       var $this = $(this.settings.subscriberSelector);
 
@@ -157,12 +157,11 @@
 
   // A really lightweight plugin wrapper around the constructor,
   // preventing against multiple instantiations
-  $.fn[pluginName] = function (options) {
-    this.each(function () {
-      if (!$.data(this, 'plugin_' + pluginName)) {
-        $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
-      }
-    });
+  $[pluginName] = function (options) {
+    var instance;
+    if(!activated){
+      instance = new Plugin(options);
+    }
 
     // chain jQuery functions
     return this;
