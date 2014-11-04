@@ -1,4 +1,5 @@
 (function($) {
+'use strict';
   /*
     ======== A Handy Little QUnit Reference ========
     http://api.qunitjs.com/
@@ -23,14 +24,22 @@
   module('jQuery#jqReveal', {
     // This will run before each test in this module.
     setup: function() {
-      this.elems = $('#qunit-fixture').children();
+      this.jqReveal = $({}).jqReveal({debug:false});
     }
   });
 
   test('is chainable', function() {
     expect(1);
+
     // Not a bad test to run on collection methods.
     strictEqual(this.elems.jqReveal(), this.elems, 'should be chainable');
+  });
+
+  test('is ok', function () {
+    expect(1);
+
+    ok('BUTTONS', 'I am ok');
+
   });
 
 }(jQuery));
