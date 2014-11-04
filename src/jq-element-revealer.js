@@ -1,4 +1,4 @@
-(function ($, window, document, undefined) {
+(function ($, undefined) {
   'use strict';
 
   var pluginName = 'jqReveal',
@@ -71,19 +71,19 @@
         }
 
         $.each($elEventsArray, function (idx, eventName) {
-          _this.pdPublish(eventName, e);
+          _this.publish(eventName, e);
         });
       });
 
     },
 
     /**
-     * [pdPublish description]
+     * [publish description]
      * @param  {[type]} data [description]
      * @param  {[type]} e    [description]
      * @return {[type]}      [description]
      */
-    pdPublish: function (data, e) {
+    publish: function (data, e) {
       var $el = $(e.target)[0];
       var eventValue = $el.getAttribute('value') || $el.getAttribute(this.settings.publisherEventValue);
 
@@ -144,11 +144,9 @@
      * @return {[type]}       [description]
      */
     extractEventNamesList: function ($el, _this) {
-      var dataArray = ['DEFAULT'],
-        tagName = $el.prop('tagName'),
-        el = ((tagName === 'SELECT') ? $('option:selected', _this)[0] : $el[0]);
-
-      dataArray = el.getAttribute(this.settings.publisherEvents).split(this.settings.arraySeparator);
+      var tagName = $el.prop('tagName'),
+        el = ((tagName === 'SELECT') ? $('option:selected', _this)[0] : $el[0]),
+        dataArray = el.getAttribute(this.settings.publisherEvents).split(this.settings.arraySeparator);
 
       return dataArray;
     }
@@ -166,4 +164,4 @@
     return this;
   };
 
-})(jQuery, window, document);
+})(jQuery);
