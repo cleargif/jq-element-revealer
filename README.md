@@ -11,17 +11,7 @@ Download the [production version][min] or the [development version][max].
 [min]: https://raw.githubusercontent.com/cleargif/jquery-jq-element-revealer/master/dist/jquery.jq-element-revealer.min.js
 [max]: https://raw.githubusercontent.com/cleargif/jquery-jq-element-revealer/master/dist/jquery.jq-element-revealer.js
 
-In your web page:
 
-```html
-<script src="jquery.js"></script>
-<script src="dist/jq-element-revealer.min.js"></script>
-<script>
-jQuery(function($) {
-  $.awesome(); // "awesome"
-});
-</script>
-```
 
 ## Documentation
   
@@ -39,7 +29,19 @@ Needs a tidy up but will get there.
 
 Only make changes in `src` folder
 
+# IGNORE BELOW THIS LINE
 
+In your web page:
+
+```html
+<script src="jquery.js"></script>
+<script src="dist/jq-element-revealer.min.js"></script>
+<script>
+jQuery(function($) {
+  $.awesome(); // "awesome"
+});
+</script>
+```
 
 ## Examples
 _(Coming soon)_
