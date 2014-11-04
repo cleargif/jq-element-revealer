@@ -4,18 +4,18 @@
   var pluginName = 'jqReveal',
     defaults = {
       debug: true,
-      arraySeperator: '|',
+      arraySeparator: '|',
 
       // Publisher default selectors and attributes
-      dpPublishDelegateSelector: '.pd-delegate-hook',
-      dpPublisherSelector: '.pd-publisher',
-      dpPublisherEvents: 'data-pd-publish-events',
-      dpPublisherEventValue: 'data-pd-publish-value',
+      publishDelegateSelector: '.pd-delegate-hook',
+      publisherSelector: '.pd-publisher',
+      publisherEvents: 'data-pd-publish-events',
+      publisherEventValue: 'data-pd-publish-value',
 
       // Subscriber default selectors and attributes
-      dpSubscriberSelector: '.pd-subscriber',
-      dpSubscriberEvents: 'data-pd-subscribe-events',
-      dpSubscriberEventValues: 'data-pd-subscribe-values'
+      subscriberSelector: '.pd-subscriber',
+      subscriberEvents: 'data-pd-subscribe-events',
+      subscriberEventValues: 'data-pd-subscribe-values'
     };
 
   // Plugin constructor
@@ -23,11 +23,8 @@
     this.element = element;
     this.$element = $(element);
     this.settings = $.extend({}, defaults, options);
-    this._defaults = defaults;
-    this._name = pluginName;
     this.init();
   }
-
 
   // Avoid Plugin.prototype conflicts
   $.extend(Plugin.prototype, {
@@ -40,7 +37,7 @@
       }
     },
     debug: function () {
-      var $this = $(this.settings.dpSubscriberSelector);
+      var $this = $(this.settings.subscriberSelector);
 
       $this.css({
         border: '1px solid gray'
@@ -56,7 +53,7 @@
      * @return {[type]} [description]
      */
     bindPublishers: function () {
-      var $this = $(this.settings.dpPublishDelegateSelector),
+      var $this = $(this.settings.publishDelegateSelector),
         _this = this;
 
       /**
@@ -64,10 +61,12 @@
        * @param  {[type]} e [description]
        * @return {[type]}   [description]
        */
-      $this.on('click pseudo-click', _this.settings.dpPublisherSelector, {}, function (e) {
+      $this.on('click pseudo-click', _this.settings.publisherSelector, {}, function (e) {
         var $el = $(this),
-          $elEventsArray = _this.extractEventNamesList($el, this);
-        if ($el.prop('tagName') === 'A' || $el.prop('tagName') === 'BUTTON') {
+          $elEventsArray = _this.extractEventNamesList($el, this),
+          tag = $el.prop('tagName');
+
+        if (tag === 'A' || tag === 'BUTTON') {
           e.preventDefault();
         }
 
@@ -75,7 +74,6 @@
           _this.pdPublish(eventName, e);
         });
       });
-
 
     },
 
@@ -87,11 +85,13 @@
      */
     pdPublish: function (data, e) {
       var $el = $(e.target)[0];
-      var eventValue = $el.getAttribute('value') || $el.getAttribute(this.settings.dpPublisherEventValue);
+      var eventValue = $el.getAttribute('value') || $el.getAttribute(this.settings.publisherEventValue);
+
       $.publish(data, {
         e: e,
         eventValue: eventValue
       });
+
     },
 
     /**
@@ -99,11 +99,11 @@
      * @return {[type]} [description]
      */
     bindSubscribers: function () {
-      var $this = $(this.settings.dpSubscriberSelector),
+      var $this = $(this.settings.subscriberSelector),
         _this = this;
 
       $this.is(function (idx, el) {
-        $.subscribe(el.getAttribute(_this.settings.dpSubscriberEvents), function (event, obj) {
+        $.subscribe(el.getAttribute(_this.settings.subscriberEvents), function (event, obj) {
           _this.subscriberStateManager(el, event, obj);
         });
 
@@ -118,7 +118,7 @@
      * @return {[type]}       [description]
      */
     subscriberStateManager: function (el, event, obj) {
-      var eventValues = el.getAttribute(this.settings.dpSubscriberEventValues);
+      var eventValues = el.getAttribute(this.settings.subscriberEventValues);
       var isInArray;
       var $el = $(el);
 
@@ -127,15 +127,14 @@
         return;
       }
 
-      isInArray = !!~$.inArray(obj.eventValue, eventValues.split(this.settings.arraySeperator));
+      isInArray = !!~$.inArray(obj.eventValue, eventValues.split(this.settings.arraySeparator));
+
       if (isInArray) {
         $el.show();
         return;
       }
 
       $el.hide();
-      return;
-
     },
 
     /**
@@ -148,7 +147,9 @@
       var dataArray = ['DEFAULT'],
         tagName = $el.prop('tagName'),
         el = ((tagName === 'SELECT') ? $('option:selected', _this)[0] : $el[0]);
-      dataArray = el.getAttribute(this.settings.dpPublisherEvents).split(this.settings.arraySeperator);
+
+      dataArray = el.getAttribute(this.settings.publisherEvents).split(this.settings.arraySeparator);
+
       return dataArray;
     }
 
