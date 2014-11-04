@@ -161,9 +161,8 @@
   // A really lightweight plugin wrapper around the constructor,
   // preventing against multiple instantiations
   $[pluginName] = function (options) {
-    var instance;
     if(!activated){
-      instance = new Plugin(options);
+      new Plugin(options);
     }
 
     // chain jQuery functions
