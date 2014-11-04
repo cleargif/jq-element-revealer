@@ -24,7 +24,11 @@ jQuery(function($) {
 ```
 
 ## Documentation
-_(Coming soon)_
+  $ npm install
+
+  bower install
+
+  grunt serve
 
 ## Examples
 _(Coming soon)_
