@@ -29,6 +29,11 @@ jQuery(function($) {
 
     bower install
 
+## GruntJS
+
+The full monty. jshint, creats the dist and demo folders, builds the demo site, runs watch on almost everything. 
+Needs a tidy up but will get there. Only make changes in `src` folder
+
     grunt serve
 
 ## Examples
