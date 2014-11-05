@@ -1,36 +1,32 @@
-/*! jq-element-revealer - v0.1.0 - 2014-11-04
+/*! jq-element-revealer - v0.1.0 - 2014-11-05
 * https://github.com/cleargif/jq-element-revealer
 * Copyright (c) 2014 @ClearGif; Licensed http://cleargifltd.mit-license.org/ */
-(function ($, window, document, undefined) {
+(function ($, undefined) {
   'use strict';
 
   var pluginName = 'jqReveal',
     defaults = {
-      debug: true,
-      arraySeperator: '|',
+      debug: false,
+      arraySeparator: '|',
 
       // Publisher default selectors and attributes
-      dpPublishDelegateSelector: '.pd-delegate-hook',
-      dpPublisherSelector: '.pd-publisher',
-      dpPublisherEvents: 'data-pd-publish-events',
-      dpPublisherEventValue: 'data-pd-publish-value',
+      publishDelegateSelector: '.pd-delegate-hook',
+      publisherSelector: '.pd-publisher',
+      publisherEvents: 'data-pd-publish-events',
+      publisherEventValue: 'data-pd-publish-value',
 
       // Subscriber default selectors and attributes
-      dpSubscriberSelector: '.pd-subscriber',
-      dpSubscriberEvents: 'data-pd-subscribe-events',
-      dpSubscriberEventValues: 'data-pd-subscribe-values'
-    };
+      subscriberSelector: '.pd-subscriber',
+      subscriberEvents: 'data-pd-subscribe-events',
+      subscriberEventValues: 'data-pd-subscribe-values'
+    },
+    activated = false;
 
   // Plugin constructor
-  function Plugin(element, options) {
-    this.element = element;
-    this.$element = $(element);
+  function Plugin(options) {
     this.settings = $.extend({}, defaults, options);
-    this._defaults = defaults;
-    this._name = pluginName;
     this.init();
   }
-
 
   // Avoid Plugin.prototype conflicts
   $.extend(Plugin.prototype, {
@@ -42,8 +38,9 @@
         this.debug();
       }
     },
+
     debug: function () {
-      var $this = $(this.settings.dpSubscriberSelector);
+      var $this = $(this.settings.subscriberSelector);
 
       $this.css({
         border: '1px solid gray'
@@ -59,7 +56,7 @@
      * @return {[type]} [description]
      */
     bindPublishers: function () {
-      var $this = $(this.settings.dpPublishDelegateSelector),
+      var $this = $(this.settings.publishDelegateSelector),
         _this = this;
 
       /**
@@ -67,34 +64,37 @@
        * @param  {[type]} e [description]
        * @return {[type]}   [description]
        */
-      $this.on('click pseudo-click', _this.settings.dpPublisherSelector, {}, function (e) {
+      $this.on('click pseudo-click', _this.settings.publisherSelector, {}, function (e) {
         var $el = $(this),
-          $elEventsArray = _this.extractEventNamesList($el, this);
-        if ($el.prop('tagName') === 'A' || $el.prop('tagName') === 'BUTTON') {
+          $elEventsArray = _this.extractEventNamesList($el, this),
+          tag = $el.prop('tagName');
+
+        if (tag === 'A' || tag === 'BUTTON') {
           e.preventDefault();
         }
 
         $.each($elEventsArray, function (idx, eventName) {
-          _this.pdPublish(eventName, e);
+          _this.publish(eventName, e);
         });
       });
-
 
     },
 
     /**
-     * [pdPublish description]
+     * [publish description]
      * @param  {[type]} data [description]
      * @param  {[type]} e    [description]
      * @return {[type]}      [description]
      */
-    pdPublish: function (data, e) {
+    publish: function (data, e) {
       var $el = $(e.target)[0];
-      var eventValue = $el.getAttribute('value') || $el.getAttribute(this.settings.dpPublisherEventValue);
+      var eventValue = $el.getAttribute('value') || $el.getAttribute(this.settings.publisherEventValue);
+
       $.publish(data, {
         e: e,
         eventValue: eventValue
       });
+
     },
 
     /**
@@ -102,14 +102,13 @@
      * @return {[type]} [description]
      */
     bindSubscribers: function () {
-      var $this = $(this.settings.dpSubscriberSelector),
+      var $this = $(this.settings.subscriberSelector),
         _this = this;
 
       $this.is(function (idx, el) {
-        $.subscribe(el.getAttribute(_this.settings.dpSubscriberEvents), function (event, obj) {
+        $.subscribe(el.getAttribute(_this.settings.subscriberEvents), function (event, obj) {
           _this.subscriberStateManager(el, event, obj);
         });
-
       });
     },
 
@@ -121,7 +120,7 @@
      * @return {[type]}       [description]
      */
     subscriberStateManager: function (el, event, obj) {
-      var eventValues = el.getAttribute(this.settings.dpSubscriberEventValues);
+      var eventValues = el.getAttribute(this.settings.subscriberEventValues);
       var isInArray;
       var $el = $(el);
 
@@ -130,15 +129,14 @@
         return;
       }
 
-      isInArray = !!~$.inArray(obj.eventValue, eventValues.split(this.settings.arraySeperator));
+      isInArray = !!~$.inArray(obj.eventValue, eventValues.split(this.settings.arraySeparator));
+
       if (isInArray) {
         $el.show();
         return;
       }
 
       $el.hide();
-      return;
-
     },
 
     /**
@@ -148,26 +146,30 @@
      * @return {[type]}       [description]
      */
     extractEventNamesList: function ($el, _this) {
-      var dataArray = ['DEFAULT'],
-        tagName = $el.prop('tagName'),
-        el = ((tagName === 'SELECT') ? $('option:selected', _this)[0] : $el[0]);
-      dataArray = el.getAttribute(this.settings.dpPublisherEvents).split(this.settings.arraySeperator);
+      var tagName = $el.prop('tagName'),
+        el = ((tagName === 'SELECT') ? $('option:selected', _this)[0] : $el[0]),
+        dataArray = el.getAttribute(this.settings.publisherEvents).split(this.settings.arraySeparator);
+
       return dataArray;
     }
 
   });
 
-  // A really lightweight plugin wrapper around the constructor,
-  // preventing against multiple instantiations
-  $.fn[pluginName] = function (options) {
-    this.each(function () {
-      if (!$.data(this, 'plugin_' + pluginName)) {
-        $.data(this, 'plugin_' + pluginName, new Plugin(this, options));
+  // Plugin wrapper to prevent multiple copies of the
+  // plugin being included and to prevent it running
+  // multiple times
+  if(typeof $[pluginName] === "undefined") {
+
+    $[pluginName] = function (options) {
+
+      if (!activated) {
+        new Plugin(options);
       }
-    });
 
-    // chain jQuery functions
-    return this;
-  };
+      // chain jQuery functions
+      return this;
+    };
 
-})(jQuery, window, document);
+  }
+
+})(jQuery);
