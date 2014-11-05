@@ -109,7 +109,6 @@
         $.subscribe(el.getAttribute(_this.settings.subscriberEvents), function (event, obj) {
           _this.subscriberStateManager(el, event, obj);
         });
-
       });
     },
 
@@ -156,15 +155,21 @@
 
   });
 
-  // A really lightweight plugin wrapper around the constructor,
-  // preventing against multiple instantiations
-  $[pluginName] = function (options) {
-    if(!activated){
-      new Plugin(options);
-    }
+  // Plugin wrapper to prevent multiple copies of the
+  // plugin being included and to prevent it running
+  // multiple times
+  if(typeof $[pluginName] === "undefined") {
 
-    // chain jQuery functions
-    return this;
-  };
+    $[pluginName] = function (options) {
+
+      if (!activated) {
+        new Plugin(options);
+      }
+
+      // chain jQuery functions
+      return this;
+    };
+
+  }
 
 })(jQuery);
