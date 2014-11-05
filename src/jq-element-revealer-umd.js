@@ -1,7 +1,17 @@
-/*! jq-element-revealer - v0.1.0 - 2014-11-05
-* https://github.com/cleargif/jq-element-revealer
-* Copyright (c) 2014 @ClearGif; Licensed http://cleargifltd.mit-license.org/ */
-(function ($, undefined) {
+/* global define, require */
+
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+    // Node/CommonJS
+    factory(require('jquery'));
+  } else {
+    // Browser globals
+    factory(jQuery);
+  }
+}(function ($, undefined) {
   'use strict';
 
   var pluginName = 'jqReveal',
@@ -171,5 +181,4 @@
     };
 
   }
-
-})(jQuery);
+}));

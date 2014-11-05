@@ -24,18 +24,26 @@ module.exports = function (grunt) {
         banner: '<%= banner %>',
         stripBanners: true
       },
-      dist: {
+      dist1: {
         src: ['src/<%= pkg.name %>.js'],
         dest: 'dist/jquery.<%= pkg.name %>.js'
+      },
+      dist2: {
+        src: ['src/<%= pkg.name %>-umd.js'],
+        dest: 'dist/jquery.<%= pkg.name %>-umd.js'
       }
     },
     uglify: {
       options: {
         banner: '<%= banner %>'
       },
-      dist: {
-        src: '<%= concat.dist.dest %>',
+      dist1: {
+        src: '<%= concat.dist1.dest %>',
         dest: 'dist/jquery.<%= pkg.name %>.min.js'
+      },
+      dist2: {
+        src: '<%= concat.dist2.dest %>',
+        dest: 'dist/jquery.<%= pkg.name %>-umd.min.js'
       }
     },
     qunit: {
@@ -79,7 +87,7 @@ module.exports = function (grunt) {
       },
       demo: {
         files: ['src/demo/**/*.html', 'test/**/*.html'],
-        tasks: ['bake:build','jshint:test', 'qunit']
+        tasks: ['bake:build', 'jshint:test', 'qunit']
       },
       test: {
         files: '<%= jshint.test.src %>',

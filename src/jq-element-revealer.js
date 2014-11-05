@@ -121,7 +121,7 @@
       var isInArray;
       var $el = $(el);
 
-      if(!eventValues){
+      if (!eventValues) {
         $el.toggle();
         return;
       }
@@ -155,7 +155,7 @@
   // Plugin wrapper to prevent multiple copies of the
   // plugin being included and to prevent it running
   // multiple times
-  if(typeof $[pluginName] === "undefined") {
+  if (typeof $[pluginName] === "undefined") {
 
     $[pluginName] = function (options) {
 
