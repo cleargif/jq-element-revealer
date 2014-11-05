@@ -7,9 +7,6 @@ Show / Hide elements with Pub/Sub
 ### Master Branch
 [![Build Status](https://travis-ci.org/cleargif/jq-element-revealer.svg?branch=master)](https://travis-ci.org/cleargif/jq-element-revealer)
 
-### Dependancies
-
-![Dependancies Build Status](https://david-dm.org/cleargif/jq-element-revealer.png)
 
 ## Getting Started
 
