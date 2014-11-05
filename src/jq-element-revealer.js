@@ -174,6 +174,7 @@
 
       if (!activated) {
         new Plugin(options);
+        activated = true;
       }
 
       // chain jQuery functions
