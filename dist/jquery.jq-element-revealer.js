@@ -1,10 +1,11 @@
-/*! jq-element-revealer - v0.1.0 - 2014-11-04
+/*! jq-element-revealer - v0.1.0 - 2014-11-05
 * https://github.com/cleargif/jq-element-revealer
 * Copyright (c) 2014 @ClearGif; Licensed http://cleargifltd.mit-license.org/ */
 (function ($, undefined) {
   'use strict';
 
-  var defaults = {
+  var pluginName = 'jqReveal',
+    defaults = {
       debug: false,
       arraySeparator: '|',
 
@@ -155,18 +156,15 @@
 
   });
 
-  // Plugin wrapper to prevent multiple copies of the
-  // plugin being included and to prevent it running
-  // multiple times
-  if(typeof $.jqReveal === undefined){
-    $.jqReveal = function (options) {
-      if(!activated){
-        new Plugin(options);
-      }
+  // A really lightweight plugin wrapper around the constructor,
+  // preventing against multiple instantiations
+  $[pluginName] = function (options) {
+    if(!activated){
+      new Plugin(options);
+    }
 
-      // chain jQuery functions
-      return this;
-    };
-  }
+    // chain jQuery functions
+    return this;
+  };
 
 })(jQuery);

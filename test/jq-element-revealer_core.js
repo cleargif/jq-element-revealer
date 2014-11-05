@@ -1,4 +1,3 @@
-/* global console */
 (function ($) {
   /*
     ======== A Handy Little QUnit Reference ========
@@ -23,9 +22,8 @@
 
   module('jQuery#jqReveal');
 
-  test('avaliable', function () {
-    console.log(this.elems);
-    ok($.jqReveal('exists'));
+  test('jqReveal is avaliable as a jQuery plugin', function () {
+    equal(typeof $.jqReveal, "function");
   });
 
 }(jQuery));
