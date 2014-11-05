@@ -1,4 +1,17 @@
-(function ($, undefined) {
+/* global define, require */
+
+(function (factory) {
+  if (typeof define === 'function' && define.amd) {
+    // AMD. Register as an anonymous module.
+    define(['jquery'], factory);
+  } else if (typeof exports === 'object') {
+    // Node/CommonJS
+    factory(require('jquery'));
+  } else {
+    // Browser globals
+    factory(jQuery);
+  }
+}(function ($, undefined) {
   'use strict';
 
   var pluginName = 'jqReveal',
@@ -121,7 +134,7 @@
       var isInArray;
       var $el = $(el);
 
-      if(!eventValues){
+      if (!eventValues) {
         $el.toggle();
         return;
       }
@@ -155,7 +168,7 @@
   // Plugin wrapper to prevent multiple copies of the
   // plugin being included and to prevent it running
   // multiple times
-  if(typeof $[pluginName] === "undefined") {
+  if (typeof $[pluginName] === "undefined") {
 
     $[pluginName] = function (options) {
 
@@ -168,5 +181,4 @@
     };
 
   }
-
-})(jQuery);
+}));
