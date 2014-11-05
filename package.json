@@ -16,14 +16,17 @@
     "type": "git",
     "url": "https://github.com/cleargif/jq-element-revealer.git"
   },
-  "licenses": [{
-    "type": "http://cleargifltd.mit-license.org/"
-  }],
+  "licenses": [
+    {
+      "type": "http://cleargifltd.mit-license.org/"
+    }
+  ],
   "scripts": {
     "test": "grunt build --verbose"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
+    "grunt-cli": "^0.1.13",
     "grunt-bake": "0.3.12",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-concat": "~0.4.0",
