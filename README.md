@@ -4,6 +4,9 @@
 
 Show / Hide elements with Pub/Sub
 
+Master Branch
+[![Build Status](https://travis-ci.org/cleargif/jq-element-revealer.svg?branch=master)](https://travis-ci.org/cleargif/jq-element-revealer)
+
 ## Getting Started
 
 Download the [production version][min] or the [development version][max].
