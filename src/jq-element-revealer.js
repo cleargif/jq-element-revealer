@@ -1,5 +1,3 @@
-/* global define, require */
-
 (function (factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -14,21 +12,37 @@
 }(function ($, undefined) {
   'use strict';
 
+  /*! Tiny Pub/Sub - v0.7.0 - 2013-01-29
+   * https://github.com/cowboy/jquery-tiny-pubsub
+   * Copyright (c) 2013 "Cowboy" Ben Alman; Licensed MIT */
+  var o = $({});
+
+  $.subscribe = function () {
+    o.on.apply(o, arguments);
+  };
+
+  $.unsubscribe = function () {
+    o.off.apply(o, arguments);
+  };
+
+  $.publish = function () {
+    o.trigger.apply(o, arguments);
+  };
+
   var pluginName = 'jqReveal',
     defaults = {
-      debug: false,
       arraySeparator: '|',
 
       // Publisher default selectors and attributes
-      publishDelegateSelector: '.pd-delegate-hook',
-      publisherSelector: '.pd-publisher',
-      publisherEvents: 'data-pd-publish-events',
-      publisherEventValue: 'data-pd-publish-value',
+      publishDelegateSelector: '.jqr-delegate-hook',
+      publisherSelector: '.jqr-publisher',
+      publisherEvents: 'data-jqr-publish-events',
+      publisherEventValue: 'data-jqr-publish-value',
 
       // Subscriber default selectors and attributes
-      subscriberSelector: '.pd-subscriber',
-      subscriberEvents: 'data-pd-subscribe-events',
-      subscriberEventValues: 'data-pd-subscribe-values'
+      subscriberSelector: '.jqr-subscriber',
+      subscriberEvents: 'data-jqr-subscribe-events',
+      subscriberEventValues: 'data-jqr-subscribe-values'
     },
     activated = false;
 
@@ -43,24 +57,7 @@
     init: function () {
       this.bindPublishers();
       this.bindSubscribers();
-
-      if (this.settings.debug) {
-        this.debug();
-      }
     },
-
-    debug: function () {
-      var $this = $(this.settings.subscriberSelector);
-
-      $this.css({
-        border: '1px solid gray'
-      });
-
-      $this.is(function (idx, el) {
-        $(el).prepend('<b>' + $(el).attr('data-pd-subscribe-events') + '::' + $(el).attr('data-pd-subscribe-values') + '</b>');
-      });
-    },
-
     /**
      * [bindPublishers description]
      * @return {[type]} [description]
@@ -78,7 +75,7 @@
         var $el = $(this),
           $elEventsArray = _this.extractEventNamesList($el, this),
           tag = $el.prop('tagName');
-
+        console.log($el);
         if (tag === 'A' || tag === 'BUTTON') {
           e.preventDefault();
         }
