@@ -12,8 +12,8 @@ Show / Hide elements with Pub/Sub
 
 Download the [production version][min] or the [development version][max].
 
-[min]: https://raw.githubusercontent.com/cleargif/jquery-jq-element-revealer/master/dist/jquery.jq-element-revealer.min.js
-[max]: https://raw.githubusercontent.com/cleargif/jquery-jq-element-revealer/master/dist/jquery.jq-element-revealer.js
+[min]: https://raw.githubusercontent.com/cleargif/jq-element-revealer/master/dist/jquery.jq-element-revealer.min.js
+[max]: https://raw.githubusercontent.com/cleargif/jq-element-revealer/master/dist/jquery.jq-element-revealer.js
 
 
 
