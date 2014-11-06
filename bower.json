@@ -1,21 +1,27 @@
 {
   "name": "jq-element-revealer",
-  "version": "0.1.0",
-  "homepage": "http://jquery.cleargif.co.uk",
+  "version": "1.0.0",
+  "homepage": "http://cleargif.github.io/jq-element-revealer",
   "authors": [
-    "@CleargGif <jquery@cleargif.co.uk>"
+    "@ClearGif <jqr@cleargif.co.uk> (http://github.com/cleargif)",
+    "Jonathan Fielding, (http://jonathanfielding.com)"
   ],
   "description": "jQuery plugin to handle progressive disclosure. Useful on forms.",
-  "main": "src/jq-element-revealer.js",
+  "main": "dist/jq-element-revealer.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:cleargif/jq-element-revealer.git"
+  },
   "keywords": [
     "jquery",
     "plugin",
     "forms",
     "jquery-plugin",
     "tinyPubSub",
-    "progressive disclosure"
+    "progressive disclosure",
+    "reveal"
   ],
-  "license": "MIT",
+  "license": "http://cleargifltd.mit-license.org",
   "private": true,
   "ignore": [
     "**/.*",
