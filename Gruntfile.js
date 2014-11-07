@@ -123,13 +123,13 @@ module.exports = function (grunt) {
           hostname: '*',
           port: 9000
         }
-      },
-      version: {
+      }
+    },
+    version: {
         project: {
           src: ['package.json', 'bower.json', 'jq-element-revealer.jquery.json']
         }
       }
-    }
   });
 
   // Default task.
