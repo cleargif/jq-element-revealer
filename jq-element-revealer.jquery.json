@@ -2,8 +2,8 @@
   "name": "jq-element-revealer",
   "title": "jQuery Element Revealer",
   "description": "Show / Hide elements with Pub/Sub",
-  "version": "0.1.0",
-  "homepage": "https://github.com/cleargif/jq-element-revealer",
+  "version": "1.0.3",
+  "homepage": "http://cleargif.github.io/jq-element-revealer",
   "author": {
     "name": "@ClearGif",
     "url": "https://github.com/cleargif"
@@ -15,8 +15,8 @@
   "bugs": "https://github.com/cleargif/jq-element-revealer/issues",
   "licenses": [
     {
-      "type": "http://cleargifltd.mit-license.org/",
-      "url": "http://opensource.org/licenses/http://cleargifltd.mit-license.org/"
+      "type": "MIT",
+      "url": "http://cleargifltd.mit-license.org/"
     }
   ],
   "dependencies": {
