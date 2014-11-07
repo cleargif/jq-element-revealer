@@ -1,7 +1,7 @@
 {
   "name": "jq-element-revealer",
-  "version": "1.0.2",
   "description": "jQuery Element Revealer",
+  "version": "1.0.2",
   "keywords": [
     "jquery-plugin"
   ],

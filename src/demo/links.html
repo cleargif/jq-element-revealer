@@ -5,16 +5,16 @@
   </head>
 
   <body role="document">
-  <!--(bake includes/main-nav.html buttons="true")-->
+  <!--(bake includes/main-nav.html links="true")-->
 
 
     <div class="container theme-showcase" role="main">
 
       <section class="dp-se">
         <div class="page-header">
-          <h1>Examples :: Buttons</h1>
+          <h1>Examples :: Links</h1>
         </div>
-        <div class="bs-callout bs-callout-primary">
+        <div class="bs-callout bs-callout-warning">
           <div class="jqr-delegate-hook">
             <small class="pull-right">
               <a href="#nogo" class="jqr-publisher" data-jqr-publish-events="/example/showcode/">Code Samples</a>
@@ -22,34 +22,53 @@
             <h4>The Publishers</h4>
             <p>These buttons control the paragraphs below. Click them and see the subscribers react.<br/>
             <small>The buttons will publish a single event with a single value. It is the subsribers who listen for the event and the values that will make them show / hide.</small></p>
+
+
+
             <div class="jqr-subscriber" data-jqr-subscribe-events="/example/showcode/">
-              <button type="button" class="btn btn-sm btn-default jqr-publisher"
-                    data-jqr-publish-events="/buttons/event/" data-jqr-publish-value="button.attr.val1">button.attr.val1</button>
 
-              <button type="button" class="btn btn-sm btn-default jqr-publisher"
-                      data-jqr-publish-events="/buttons/event/" data-jqr-publish-value="button.attr.val2">button.attr.val2</button>
+              <ul class="nav nav-pills">
+                <li>
+                  <a href="#" class="jqr-publisher"
+                      data-jqr-publish-events="/links/event/"
+                      data-jqr-publish-value="link.attr.val1">link.attr.val1
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="jqr-publisher"
+                      data-jqr-publish-events="/links/event/"
+                      data-jqr-publish-value="link.attr.val2">link.attr.val2
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="jqr-publisher"
+                      data-jqr-publish-events="/links/event/"
+                      data-jqr-publish-value="link.attr.val3">link.attr.val3
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="jqr-publisher"
+                      data-jqr-publish-events="/links/event/"
+                      data-jqr-publish-value="link.attr.val4">link.attr.val4
+                  </a>
+                </li>
+              </ul>
 
-              <button type="button" class="btn btn-sm btn-default jqr-publisher"
-                      data-jqr-publish-events="/buttons/event/" data-jqr-publish-value="button.attr.val3">button.attr.val3</button>
 
-              <button type="button" class="btn btn-sm btn-default jqr-publisher"
-                    data-jqr-publish-events="/buttons/event/" data-jqr-publish-value="button.attr.val4">button.attr.val4</button>
 
             </div>
             <pre style="display:none;" class="jqr-subscriber language-markup" data-jqr-subscribe-events="/example/showcode/"><code>
 &lt;!-- Publishers --&gt;
-&lt;div class=&quot;jqr-delegate-hook&quot;&gt;
-  &lt;button type=&quot;button&quot; class=&quot;jqr-publisher&quot;
-          data-jqr-publish-events=&quot;/buttons/event/&quot;
-          data-jqr-publish-value=&quot;button.attr.val1&quot;&gt;
-      ...
-  &lt;/button&gt;
 
-  &lt;button type=&quot;button&quot; class=&quot;jqr-publisher&quot;
-          data-jqr-publish-events=&quot;/buttons/event/&quot;
-          data-jqr-publish-value=&quot;button.attr.val2&quot;&gt;
-      ...
-  &lt;/button&gt;
+&lt;div class=&quot;jqr-delegate-hook&quot;&gt;
+  &lt;a href=&quot;#&quot; class=&quot;jqr-publisher&quot;
+    data-jqr-publish-events=&quot;/links/event/&quot;
+    data-jqr-publish-value=&quot;link.attr.val1&quot;&gt;link.attr.val1&lt;/a&gt;
+
+  &lt;a href=&quot;#&quot; class=&quot;jqr-publisher&quot;
+    data-jqr-publish-events=&quot;/links/event/&quot;
+    data-jqr-publish-value=&quot;link.attr.val2&quot;&gt;link.attr.val2&lt;/a&gt;
+
 &lt;/div&gt;
           </code></pre>
 
@@ -57,26 +76,26 @@
         </div>
 
 
-        <div class="bs-callout bs-callout-primary">
+        <div class="bs-callout bs-callout-warning">
           <h4>The Subscibers</h4>
           <p>These sections are shown by default. Simply becuase there is no hidden style applied.</p>
           <div class="jqr-subscriber demo-divs" data-jqr-subscribe-events="/example/showcode/">
-            <div class="jqr-subscriber" data-jqr-subscribe-events="/buttons/event/" data-jqr-subscribe-values="button.attr.val1">
+            <div class="jqr-subscriber" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val1">
               <h5>Section 1</h5>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero nobis accusamus corporis, repellendus esse possimus numquam est deleniti vero laudantium in, facilis nisi ratione beatae, nostrum reprehenderit labore tempore? Quam!
             </div>
 
-            <div class="jqr-subscriber" data-jqr-subscribe-events="/buttons/event/" data-jqr-subscribe-values="button.attr.val2">
+            <div class="jqr-subscriber" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val2">
               <h5>Section 2</h5>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero nobis accusamus corporis, repellendus esse possimus numquam est deleniti vero laudantium in, facilis nisi ratione beatae, nostrum reprehenderit labore tempore? Quam!
             </div>
 
-            <div class="jqr-subscriber" data-jqr-subscribe-events="/buttons/event/" data-jqr-subscribe-values="button.attr.val1|button.attr.val3">
+            <div class="jqr-subscriber" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val1|link.attr.val3">
               <h5>Section 3</h5>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero nobis accusamus corporis, repellendus esse possimus numquam est deleniti vero laudantium in, facilis nisi ratione beatae, nostrum reprehenderit labore tempore? Quam!
             </div>
 
-            <div class="jqr-subscriber" data-jqr-subscribe-events="/buttons/event/" data-jqr-subscribe-values="button.attr.val3|button.attr.val4">
+            <div class="jqr-subscriber" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val3|link.attr.val4">
               <h5>Section 4</h5>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero nobis accusamus corporis, repellendus esse possimus numquam est deleniti vero laudantium in, facilis nisi ratione beatae, nostrum reprehenderit labore tempore? Quam!
             </div>

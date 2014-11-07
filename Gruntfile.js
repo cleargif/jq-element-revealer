@@ -79,7 +79,7 @@ module.exports = function (grunt) {
       },
       demo: {
         files: ['src/demo/**/*.html', 'test/**/*.html'],
-        tasks: ['bake:build','jshint:test', 'qunit']
+        tasks: ['bake:build', 'jshint:test', 'qunit']
       },
       test: {
         files: '<%= jshint.test.src %>',
@@ -91,7 +91,8 @@ module.exports = function (grunt) {
         files: {
           'dist/demo/index.html': 'src/demo/index.html',
           'dist/demo/buttons.html': 'src/demo/buttons.html',
-          'dist/demo/radios.html': 'src/demo/radios.html'
+          'dist/demo/radios.html': 'src/demo/radios.html',
+          'dist/demo/links.html': 'src/demo/links.html'
         }
       }
     },
@@ -122,12 +123,17 @@ module.exports = function (grunt) {
           hostname: '*',
           port: 9000
         }
+      },
+      version: {
+        project: {
+          src: ['package.json', 'bower.json', 'jq-element-revealer.jquery.json']
+        }
       }
     }
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'connect:server', 'qunit', 'clean', 'concat', 'uglify', 'copy:main', 'bake:build', 'watch']);
+  grunt.registerTask('default', ['jshint', 'connect:server', /*'qunit',*/ 'clean', 'concat', 'uglify', 'copy:main', 'bake:build', 'watch']);
 
   grunt.registerTask('build', ['jshint', 'connect:build', 'qunit', 'clean', 'concat', 'uglify', 'copy:main', 'bake:build']);
 
