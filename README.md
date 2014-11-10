@@ -22,11 +22,11 @@ Download the [production version][min] or the [development version][max].
   
     $ npm install
 
-    bower install
+    $ bower install
 
 ## GruntJS
 
-    grunt serve
+    $ grunt serve
 
 The full monty.
 It does: jshint, creates the dist and demo folders, builds the demo site, runs watch on almost everything. 
