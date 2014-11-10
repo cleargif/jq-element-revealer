@@ -1,4 +1,5 @@
-# W I P !!
+# W I P
+The core of the plugin is done and can be used. I am working on examples / demos. 
 
 # jQuery Element Revealer
 
