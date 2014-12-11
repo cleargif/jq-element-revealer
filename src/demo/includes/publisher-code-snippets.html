@@ -1,0 +1,50 @@
+<!--(bake-start _if="linksdemo")-->
+<pre style="display:none;" class="jqr-subscriber language-markup" data-jqr-subscribe-events="/example/showcode/"><code>
+&lt;!-- Publishers --&gt;
+
+&lt;div class=&quot;jqr-delegate-hook&quot;&gt;
+  &lt;a href=&quot;#&quot; class=&quot;jqr-publisher&quot;
+    data-jqr-publish-events=&quot;/links/event/&quot;
+    data-jqr-publish-value=&quot;link.attr.val1&quot;&gt;link.attr.val1&lt;/a&gt;
+
+  &lt;a href=&quot;#&quot; class=&quot;jqr-publisher&quot;
+    data-jqr-publish-events=&quot;/links/event/&quot;
+    data-jqr-publish-value=&quot;link.attr.val2&quot;&gt;link.attr.val2&lt;/a&gt;
+
+&lt;/div&gt;
+<!--(bake-end)-->
+
+<!--(bake-start _if="buttonsdemo")-->
+<pre style="display:none;" class="jqr-subscriber language-markup" data-jqr-subscribe-events="/example/showcode/"><code>
+&lt;!-- Publishers --&gt;
+&lt;div class=&quot;jqr-delegate-hook&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;jqr-publisher&quot;
+          data-jqr-publish-events=&quot;/buttons/event/&quot;
+          data-jqr-publish-value=&quot;button.attr.val1&quot;&gt;
+      ...
+  &lt;/button&gt;
+
+  &lt;button type=&quot;button&quot; class=&quot;jqr-publisher&quot;
+          data-jqr-publish-events=&quot;/buttons/event/&quot;
+          data-jqr-publish-value=&quot;button.attr.val2&quot;&gt;
+      ...
+  &lt;/button&gt;
+&lt;/div&gt;
+<!--(bake-end)-->
+
+<!--(bake-start _if="radiosdemo")-->
+<pre style="display:none;" class="jqr-subscriber language-markup" data-jqr-subscribe-events="/example/showcode/"><code>
+&lt;!-- Publishers --&gt;
+&lt;div class=&quot;jqr-delegate-hook&quot;&gt;
+  &lt;label&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;radios&quot; class=&quot;jqr-publisher&quot;
+      data-jqr-publish-events=&quot;/radio/events/&quot; value=&quot;radio.attr.val1&quot; /&gt; radio.attr.val1
+  &lt;/label&gt;
+
+  &lt;label&gt;
+    &lt;input type=&quot;radio&quot; name=&quot;radios&quot; class=&quot;jqr-publisher&quot;
+      data-jqr-publish-events=&quot;/radio/events/&quot; value=&quot;radio.attr.val2&quot; /&gt; radio.attr.val2
+  &lt;/label&gt;
+&lt;/div&gt;
+<!--(bake-end)-->
+</code></pre>

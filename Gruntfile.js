@@ -90,6 +90,9 @@ module.exports = function (grunt) {
       build: {
         files: {
           'dist/demo/index.html': 'src/demo/index.html',
+          'dist/demo/api-settings.html': 'src/demo/api-settings.html',
+          'dist/demo/publishers.html': 'src/demo/publishers.html',
+          'dist/demo/subscribers.html': 'src/demo/subscribers.html',
           'dist/demo/buttons.html': 'src/demo/buttons.html',
           'dist/demo/radios.html': 'src/demo/radios.html',
           'dist/demo/links.html': 'src/demo/links.html'
@@ -126,10 +129,10 @@ module.exports = function (grunt) {
       }
     },
     version: {
-        project: {
-          src: ['package.json', 'bower.json', 'jq-element-revealer.jquery.json']
-        }
+      project: {
+        src: ['package.json', 'bower.json', 'jq-element-revealer.jquery.json']
       }
+    }
   });
 
   // Default task.

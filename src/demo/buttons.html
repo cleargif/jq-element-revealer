@@ -5,61 +5,32 @@
   </head>
 
   <body role="document">
-  <!--(bake includes/main-nav.html buttons="true")-->
+  <!--(bake includes/main-nav.html examples="true")-->
 
 
     <div class="container theme-showcase" role="main">
-
+      <!--(bake includes/example-nav.html buttons="true")-->
       <section class="dp-se">
         <div class="page-header">
           <h1>Examples :: Buttons</h1>
         </div>
         <div class="bs-callout bs-callout-primary">
           <div class="jqr-delegate-hook">
-            <small class="pull-right">
-              <a href="#nogo" class="jqr-publisher" data-jqr-publish-events="/example/showcode/">Code Samples</a>
-            </small>
+            <!--(bake includes/code-samples-link.html)-->
             <h4>The Publishers</h4>
-            <p>These buttons control the paragraphs below. Click them and see the subscribers react.<br/>
-            <small>The buttons will publish a single event with a single value. It is the subsribers who listen for the event and the values that will make them show / hide.</small></p>
+            <!--(bake includes/demo-intros.html buttonsdemo="true")-->
+
             <div class="jqr-subscriber" data-jqr-subscribe-events="/example/showcode/">
-              <button type="button" class="btn btn-sm btn-default jqr-publisher"
-                    data-jqr-publish-events="/buttons/event/" data-jqr-publish-value="button.attr.val1">button.attr.val1</button>
-
-              <button type="button" class="btn btn-sm btn-default jqr-publisher"
-                      data-jqr-publish-events="/buttons/event/" data-jqr-publish-value="button.attr.val2">button.attr.val2</button>
-
-              <button type="button" class="btn btn-sm btn-default jqr-publisher"
-                      data-jqr-publish-events="/buttons/event/" data-jqr-publish-value="button.attr.val3">button.attr.val3</button>
-
-              <button type="button" class="btn btn-sm btn-default jqr-publisher"
-                    data-jqr-publish-events="/buttons/event/" data-jqr-publish-value="button.attr.val4">button.attr.val4</button>
-
+              <!--(bake includes/publisher-templates.html buttonsdemo="true")-->
             </div>
-            <pre style="display:none;" class="jqr-subscriber language-markup" data-jqr-subscribe-events="/example/showcode/"><code>
-&lt;!-- Publishers --&gt;
-&lt;div class=&quot;jqr-delegate-hook&quot;&gt;
-  &lt;button type=&quot;button&quot; class=&quot;jqr-publisher&quot;
-          data-jqr-publish-events=&quot;/buttons/event/&quot;
-          data-jqr-publish-value=&quot;button.attr.val1&quot;&gt;
-      ...
-  &lt;/button&gt;
-
-  &lt;button type=&quot;button&quot; class=&quot;jqr-publisher&quot;
-          data-jqr-publish-events=&quot;/buttons/event/&quot;
-          data-jqr-publish-value=&quot;button.attr.val2&quot;&gt;
-      ...
-  &lt;/button&gt;
-&lt;/div&gt;
-          </code></pre>
-
+<!--(bake includes/publisher-code-snippets.html buttonsdemo="true")-->
           </div>
         </div>
 
 
         <div class="bs-callout bs-callout-primary">
           <h4>The Subscibers</h4>
-          <p>These sections are shown by default. Simply becuase there is no hidden style applied.</p>
+          <!--(bake includes/subscriber-intro.html)-->
           <div class="jqr-subscriber demo-divs" data-jqr-subscribe-events="/example/showcode/">
             <div class="jqr-subscriber" data-jqr-subscribe-events="/buttons/event/" data-jqr-subscribe-values="button.attr.val1">
               <h5>Section 1</h5>
@@ -81,21 +52,7 @@
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero nobis accusamus corporis, repellendus esse possimus numquam est deleniti vero laudantium in, facilis nisi ratione beatae, nostrum reprehenderit labore tempore? Quam!
             </div>
           </div>
-          <pre style="display:none;" class="jqr-subscriber language-markup" data-jqr-subscribe-events="/example/showcode/"><code>
-&lt;!-- Subscribers --&gt;
-&lt;div class=&quot;jqr-subscriber&quot;
-        data-jqr-subscribe-events=&quot;/buttons/event/&quot;
-        data-jqr-subscribe-values=&quot;button.attr.val1&quot;&gt;
-  ...Single event, single value
-&lt;/div&gt;
-
-&lt;div class=&quot;jqr-subscriber&quot;
-        data-jqr-subscribe-events=&quot;/buttons/event/&quot;
-        data-jqr-subscribe-values=&quot;button.attr.val2|button.attr.val3&quot;&gt;
-  ...Single event, multiple values
-&lt;/div&gt;
-
-</code></pre>
+<!--(bake includes/subscriber-code-snippets.html buttonsdemo="true")-->
         </div>
       </section>
 
