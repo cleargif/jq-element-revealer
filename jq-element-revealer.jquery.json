@@ -2,7 +2,7 @@
   "name": "jq-element-revealer",
   "title": "jQuery Element Revealer",
   "description": "Show / Hide elements with Pub/Sub",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "homepage": "http://cleargif.github.io/jq-element-revealer",
   "author": {
     "name": "@ClearGif",

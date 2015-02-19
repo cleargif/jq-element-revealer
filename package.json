@@ -1,7 +1,7 @@
 {
   "name": "jq-element-revealer",
   "description": "jQuery Element Revealer",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "dist/jquery.jq-element-revealer.min.js",
   "keywords": [
     "jquery-plugin"
