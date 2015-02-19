@@ -42,7 +42,8 @@
       // Subscriber default selectors and attributes
       subscriberSelector: '.jqr-subscriber',
       subscriberEvents: 'data-jqr-subscribe-events',
-      subscriberEventValues: 'data-jqr-subscribe-values'
+      subscriberEventValues: 'data-jqr-subscribe-values',
+      triggerPubsAfterBind: true,
     },
     activated = false;
 
@@ -57,6 +58,10 @@
     init: function () {
       this.bindPublishers();
       this.bindSubscribers();
+      if (this.settings.triggerPubsAfterBind) {
+        console.log('GOING TO TRIGGER');
+        this.triggerPublishers();
+      }
     },
     /**
      * [bindPublishers description]
@@ -75,7 +80,6 @@
         var $el = $(this),
           $elEventsArray = _this.extractEventNamesList($el, this),
           tag = $el.prop('tagName');
-        console.log($el);
         if (tag === 'A' || tag === 'BUTTON') {
           e.preventDefault();
         }
@@ -158,6 +162,19 @@
         dataArray = el.getAttribute(this.settings.publisherEvents).split(this.settings.arraySeparator);
 
       return dataArray;
+    },
+
+    /**
+     * [triggerPublishers description]
+     * @return {[type]} [description]
+     */
+    triggerPublishers: function () {
+      $(this.settings.publisherSelector).is(function () {
+        var $el = $(this);
+        if ($el.is(':checked')) {
+          $el.trigger('pseudo-click');
+        }
+      });
     }
 
   });

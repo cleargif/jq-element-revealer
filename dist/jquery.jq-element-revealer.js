@@ -1,6 +1,6 @@
-/*! jq-element-revealer - v1.0.3 - 2014-12-11
+/*! jq-element-revealer - v1.0.3 - 2015-02-19
 * https://github.com/cleargif/jq-element-revealer
-* Copyright (c) 2014 @ClearGif; Licensed http://cleargifltd.mit-license.org/ */
+* Copyright (c) 2015 @ClearGif; Licensed http://cleargifltd.mit-license.org/ */
 (function (factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
@@ -45,7 +45,8 @@
       // Subscriber default selectors and attributes
       subscriberSelector: '.jqr-subscriber',
       subscriberEvents: 'data-jqr-subscribe-events',
-      subscriberEventValues: 'data-jqr-subscribe-values'
+      subscriberEventValues: 'data-jqr-subscribe-values',
+      triggerPubsAfterBind: true,
     },
     activated = false;
 
@@ -60,6 +61,10 @@
     init: function () {
       this.bindPublishers();
       this.bindSubscribers();
+      if (this.settings.triggerPubsAfterBind) {
+        console.log('GOING TO TRIGGER');
+        this.triggerPublishers();
+      }
     },
     /**
      * [bindPublishers description]
@@ -78,7 +83,6 @@
         var $el = $(this),
           $elEventsArray = _this.extractEventNamesList($el, this),
           tag = $el.prop('tagName');
-        console.log($el);
         if (tag === 'A' || tag === 'BUTTON') {
           e.preventDefault();
         }
@@ -161,6 +165,19 @@
         dataArray = el.getAttribute(this.settings.publisherEvents).split(this.settings.arraySeparator);
 
       return dataArray;
+    },
+
+    /**
+     * [triggerPublishers description]
+     * @return {[type]} [description]
+     */
+    triggerPublishers: function () {
+      $(this.settings.publisherSelector).is(function () {
+        var $el = $(this);
+        if ($el.is(':checked')) {
+          $el.trigger('pseudo-click');
+        }
+      });
     }
 
   });

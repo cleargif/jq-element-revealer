@@ -78,7 +78,7 @@ module.exports = function (grunt) {
         tasks: ['jshint:src', 'qunit', 'concat', 'uglify']
       },
       demo: {
-        files: ['src/demo/**/*.html', 'test/**/*.html'],
+        files: ['src/demo/**/*.html', 'src/demo/**/*.css', 'test/**/*.html'],
         tasks: ['bake:build', 'jshint:test', 'qunit']
       },
       test: {
