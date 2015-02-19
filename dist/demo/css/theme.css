@@ -16,3 +16,20 @@ body {
 .theme-showcase .navbar .container {
   width: auto;
 }
+
+.example-1{
+  border: 1px solid #428bca;
+}
+.example-2{
+  border: 1px solid #5cb85c;
+}
+.example-3{
+  border: 1px solid #d9534f;
+}
+.example-4{
+  border: 1px solid #f0ad4e;
+}
+
+
+
+

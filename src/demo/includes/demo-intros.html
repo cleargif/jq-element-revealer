@@ -1,0 +1,15 @@
+<p class="bs-callout bs-callout-danger">These
+<!--(bake-start _if="radiosdemo")-->radio buttons<!--(bake-end)-->
+<!--(bake-start _if="linksdemo")-->links<!--(bake-end)-->
+<!--(bake-start _if="buttonsdemo")-->buttons<!--(bake-end)-->
+ control the paragraphs below. Click them and see the subscribers react.
+<br/><br/>
+<small>
+The
+<!--(bake-start _if="radiosdemo")-->radio buttons<!--(bake-end)-->
+<!--(bake-start _if="linksdemo")-->links<!--(bake-end)-->
+<!--(bake-start _if="buttonsdemo")-->buttons<!--(bake-end)-->
+ will publish a single event with a single value. It is the <b>subsribers (the container below)</b> -  who listen for the <i>{ event : value }</i> pair.
+ <br/>
+ If there is a match - the subscriber element will show. If no match is found  the subscriber element will hide.
+</small></p>

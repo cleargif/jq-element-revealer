@@ -44,22 +44,26 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class=""><a href="index.html">Home</a></li>
-              <li class=""><a href="buttons.html">Buttons</a></li>
-              <li class=""><a href="radios.html">Radios</a></li>
-              <li class="active"><a href="links.html">Links</a></li>
-              <!-- <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+              <li class="">
+                <a href="index.html">Home</a>
+              </li>
+              <li class="">
+                <a href="api-settings.html">API & Settings</a>
+              </li>
+              <li class="">
+                <a href="publishers.html">Publishers</a>
+              </li>
+              <li class="">
+                <a href="subscribers.html">Subscribers</a>
+              </li>
+              <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Examples <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
+                  <li><a href="buttons.html">Buttons</a></li>
+                  <li><a href="radios.html">Radios</a></li>
+                  <li><a href="links.html">Links</a></li>
                 </ul>
-              </li> -->
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -68,55 +72,80 @@
 
 
     <div class="container theme-showcase" role="main">
-
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="">
+          <a href="buttons.html">Buttons</a>
+        </li>
+        <li class="">
+          <a href="radios.html">Radios</a>
+        </li>
+        <li class="active">
+          <a href="links.html">Links</a>
+        </li>
+      </ul>
+      
+      
+      
       <section class="dp-se">
-        <div class="page-header">
-          <h1>Examples :: Links</h1>
-        </div>
         <div class="bs-callout bs-callout-warning">
           <div class="jqr-delegate-hook">
             <small class="pull-right">
               <a href="#nogo" class="jqr-publisher" data-jqr-publish-events="/example/showcode/">Code Samples</a>
             </small>
-            <h4>The Publishers</h4>
-            <p>These buttons control the paragraphs below. Click them and see the subscribers react.<br/>
-            <small>The buttons will publish a single event with a single value. It is the subsribers who listen for the event and the values that will make them show / hide.</small></p>
-
-
-
+            
+            <h4>Click the LINK Publishers</h4>
             <div class="jqr-subscriber" data-jqr-subscribe-events="/example/showcode/">
-
               <ul class="nav nav-pills">
                 <li>
                   <a href="#" class="jqr-publisher"
                       data-jqr-publish-events="/links/event/"
-                      data-jqr-publish-value="link.attr.val1">link.attr.val1
+                      data-jqr-publish-value="link.attr.val1">Link sample 1
                   </a>
                 </li>
                 <li>
                   <a href="#" class="jqr-publisher"
                       data-jqr-publish-events="/links/event/"
-                      data-jqr-publish-value="link.attr.val2">link.attr.val2
+                      data-jqr-publish-value="link.attr.val2">Link sample 2
                   </a>
                 </li>
                 <li>
                   <a href="#" class="jqr-publisher"
                       data-jqr-publish-events="/links/event/"
-                      data-jqr-publish-value="link.attr.val3">link.attr.val3
+                      data-jqr-publish-value="link.attr.val3">Link sample 3
                   </a>
                 </li>
                 <li>
                   <a href="#" class="jqr-publisher"
                       data-jqr-publish-events="/links/event/"
-                      data-jqr-publish-value="link.attr.val4">link.attr.val4
+                      data-jqr-publish-value="link.attr.val4">Link sample 4
                   </a>
                 </li>
               </ul>
+              
 
+              
 
-
+              
             </div>
-            <pre style="display:none;" class="jqr-subscriber language-markup" data-jqr-subscribe-events="/example/showcode/"><code>
+
+              <p class="bs-callout bs-callout-danger">These
+
+links
+
+               control the paragraphs below. Click them and see the subscribers react.
+              <br/><br/>
+              <small>
+              The
+
+links
+
+               will publish a single event with a single value. It is the <b>subsribers (the container below)</b> -  who listen for the <i>{ event : value }</i> pair.
+               <br/>
+               If there is a match - the subscriber element will show. If no match is found  the subscriber element will hide.
+              </small></p>
+              
+
+<pre style="display:none;" class="jqr-subscriber language-markup" data-jqr-subscribe-events="/example/showcode/"><code>
 &lt;!-- Publishers --&gt;
 
 &lt;div class=&quot;jqr-delegate-hook&quot;&gt;
@@ -129,51 +158,60 @@
     data-jqr-publish-value=&quot;link.attr.val2&quot;&gt;link.attr.val2&lt;/a&gt;
 
 &lt;/div&gt;
-          </code></pre>
+
+
+
+
+</code></pre>
 
           </div>
         </div>
 
 
         <div class="bs-callout bs-callout-warning">
-          <h4>The Subscibers</h4>
-          <p>These sections are shown by default. Simply becuase there is no hidden style applied.</p>
+          <h4>Subscibers</h4>
+          <p class="bs-callout bs-callout-danger">These sections are shown by default. Simply becuase there is no hidden style applied.</p>
+          
           <div class="jqr-subscriber demo-divs" data-jqr-subscribe-events="/example/showcode/">
-            <div class="jqr-subscriber" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val1">
+            <div class="jqr-subscriber example-1" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val1">
               <h5>Section 1</h5>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero nobis accusamus corporis, repellendus esse possimus numquam est deleniti vero laudantium in, facilis nisi ratione beatae, nostrum reprehenderit labore tempore? Quam!
             </div>
 
-            <div class="jqr-subscriber" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val2">
+            <div class="jqr-subscriber example-2" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val2">
               <h5>Section 2</h5>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero nobis accusamus corporis, repellendus esse possimus numquam est deleniti vero laudantium in, facilis nisi ratione beatae, nostrum reprehenderit labore tempore? Quam!
             </div>
 
-            <div class="jqr-subscriber" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val1|link.attr.val3">
+            <div class="jqr-subscriber example-3" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val1|link.attr.val3">
               <h5>Section 3</h5>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero nobis accusamus corporis, repellendus esse possimus numquam est deleniti vero laudantium in, facilis nisi ratione beatae, nostrum reprehenderit labore tempore? Quam!
             </div>
 
-            <div class="jqr-subscriber" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val3|link.attr.val4">
+            <div class="jqr-subscriber example-4" data-jqr-subscribe-events="/links/event/" data-jqr-subscribe-values="link.attr.val3|link.attr.val4">
               <h5>Section 4</h5>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero nobis accusamus corporis, repellendus esse possimus numquam est deleniti vero laudantium in, facilis nisi ratione beatae, nostrum reprehenderit labore tempore? Quam!
             </div>
           </div>
-          <pre style="display:none;" class="jqr-subscriber language-markup" data-jqr-subscribe-events="/example/showcode/"><code>
+<pre style="display:none;" class="jqr-subscriber language-markup" data-jqr-subscribe-events="/example/showcode/"><code>
 &lt;!-- Subscribers --&gt;
 &lt;div class=&quot;jqr-subscriber&quot;
-        data-jqr-subscribe-events=&quot;/buttons/event/&quot;
-        data-jqr-subscribe-values=&quot;button.attr.val1&quot;&gt;
+        data-jqr-subscribe-events=&quot;/links/event/&quot;
+        data-jqr-subscribe-values=&quot;link.attr.val1&quot;&gt;
   ...Single event, single value
 &lt;/div&gt;
 
 &lt;div class=&quot;jqr-subscriber&quot;
-        data-jqr-subscribe-events=&quot;/buttons/event/&quot;
-        data-jqr-subscribe-values=&quot;button.attr.val2|button.attr.val3&quot;&gt;
+        data-jqr-subscribe-events=&quot;/links/event/&quot;
+        data-jqr-subscribe-values=&quot;link.attr.val2|link.attr.val3&quot;&gt;
   ...Single event, multiple values
 &lt;/div&gt;
 
+
+
+
 </code></pre>
+
         </div>
       </section>
 
