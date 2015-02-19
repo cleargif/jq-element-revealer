@@ -59,7 +59,6 @@
       this.bindPublishers();
       this.bindSubscribers();
       if (this.settings.triggerPubsAfterBind) {
-        console.log('GOING TO TRIGGER');
         this.triggerPublishers();
       }
     },
