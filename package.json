@@ -1,7 +1,7 @@
 {
   "name": "jq-element-revealer",
   "description": "jQuery Element Revealer",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/jquery.jq-element-revealer.min.js",
   "keywords": [
     "jquery-plugin"
@@ -17,11 +17,9 @@
     "type": "git",
     "url": "https://github.com/cleargif/jq-element-revealer.git"
   },
-  "licenses": [
-    {
-      "type": "http://cleargifltd.mit-license.org/"
-    }
-  ],
+  "licenses": [{
+    "type": "http://cleargifltd.mit-license.org/"
+  }],
   "scripts": {
     "test": "grunt build --verbose"
   },

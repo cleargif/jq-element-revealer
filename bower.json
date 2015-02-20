@@ -1,13 +1,13 @@
 {
   "name": "jq-element-revealer",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "homepage": "http://cleargif.github.io/jq-element-revealer",
   "authors": [
     "@ClearGif <jqr@cleargif.co.uk> (http://github.com/cleargif)",
     "Jonathan Fielding, (http://jonathanfielding.com)"
   ],
   "description": "jQuery plugin to handle progressive disclosure. Useful on forms.",
-  "main": "dist/jq-element-revealer.js",
+  "main": "dist/jquery.jq-element-revealer.min.js",
   "repository": {
     "type": "git",
     "url": "git@github.com:cleargif/jq-element-revealer.git"

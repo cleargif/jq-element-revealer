@@ -1,4 +1,4 @@
-/*! jq-element-revealer - v1.0.5 - 2015-02-19
+/*! jq-element-revealer - v1.0.6 - 2015-02-20
 * https://github.com/cleargif/jq-element-revealer
 * Copyright (c) 2015 @ClearGif; Licensed http://cleargifltd.mit-license.org/ */
 (function (factory) {

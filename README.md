@@ -1,6 +1,3 @@
-# W I P
-The core of the plugin is done and can be used. I am working on examples / demos. 
-
 # jQuery Element Revealer
 
 Show / Hide elements with Pub/Sub
@@ -17,6 +14,19 @@ Download the [production version][min] or the [development version][max].
 [max]: https://raw.githubusercontent.com/cleargif/jq-element-revealer/master/dist/jquery.jq-element-revealer.js
 
 
+## Getting started
+```html
+<script src="jquery.js"></script>
+<script src="bower_components/jq-element-revealer/dist/jquery.jq-element-revealer.min.js"></script>
+<script>
+  $(function() {
+    $.jqReveal({
+      // options go here
+    });
+  });
+</script>
+```
+
 
 ## Documentation
   
@@ -28,31 +38,14 @@ Download the [production version][min] or the [development version][max].
 
     $ grunt serve
 
-The full monty.
-It does: jshint, creates the dist and demo folders, builds the demo site, runs watch on almost everything. 
-Needs a tidy up but will get there.
+
+Creates the dist and demo folders, builds the demo site, runs watch on almost everything. It will launch the demo site on 
+`http://localhost:9000/dist/demo/`
 
 Only make changes in `src` folder
 
-# IGNORE BELOW THIS LINE
-
-In your web page:
-
-```html
-<script src="jquery.js"></script>
-<script src="dist/jq-element-revealer.min.js"></script>
-<script>
-jQuery(function($) {
-  $.awesome(); // "awesome"
-});
-</script>
-```
-
 ## Examples
-_(Coming soon)_
+The demo site has examples for buttons, links and radio inputs, there is code snippets as well.
 
 ## Release History
-_(Nothing yet)_
-
-
-## Travis
+See [git hub](https://github.com/cleargif/jq-element-revealer/releases)
