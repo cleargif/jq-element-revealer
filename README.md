@@ -34,8 +34,6 @@ Download the [production version][min] or the [development version][max].
 
     $ bower install
 
-## GruntJS
-
     $ grunt serve
 
 
